@@ -114,7 +114,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-5 sm:mb-7 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal"
             >
-              Dedicated  IT undergraduate with a solid foundation in software engineering and quality assurance. Skilled in MERN stack development and software testing, with a passion for building efficient, reliable, and high-quality applications while continuously learning and contributing to impactful projects.
+              Dedicated IT undergraduate with a solid foundation in software engineering and quality assurance. Skilled in MERN stack development and software testing, with a passion for building efficient, reliable, and high-quality applications while continuously learning and contributing to impactful projects.
             </motion.p>
 
             {/* Buttons */}
