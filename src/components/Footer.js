@@ -1,8 +1,8 @@
 const socialLinks = [
-  { name: "GitHub", url: "https://github.com/yourname" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/yourname" },
-  { name: "Twitter", url: "https://twitter.com/yourname" },
-  { name: "Instagram", url: "https://instagram.com/yourname" }
+  { name: "GitHub", url: "https://github.com/rasikaprabath12345" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/rasikaprabath" },
+  { name: "Twitter", url: "https://twitter.com/rasikaprabath" },
+  { name: "Instagram", url: "https://instagram.com/rasikaprabath12345" }
 ];
 
 const Footer = () => {
@@ -35,13 +35,13 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:justify-end">
-            <a href="#" className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <a href="mailto:rasika.prabath@gmail.com" className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Terms of Services
             </a>
-            <a href="#" className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <a href="#contact" className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <a href="mailto:rasika.prabath@gmail.com" className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Connect with me
             </a>
           </div>

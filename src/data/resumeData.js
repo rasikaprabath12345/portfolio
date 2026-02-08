@@ -1,41 +1,41 @@
 const educationData = [
   {
     id: 1,
-    institution: "University of Technology",
+    institution: "Your University Name",
     degree: "Bachelor of Science in Computer Science",
-    duration: "2018 - 2022",
-    description: "Focused on software engineering, data structures, and web development."
+    duration: "2020 - Present",
+    description: "Specializing in software engineering, web development, and data structures with a focus on modern technologies."
   },
   {
     id: 2,
-    institution: "Tech Institute",
-    degree: "Diploma in Web Development",
-    duration: "2016 - 2018",
-    description: "Comprehensive training in modern web technologies and design principles."
+    institution: "Your College/Institute",
+    degree: "Diploma in Information Technology",
+    duration: "2018 - 2020",
+    description: "Foundation in programming, database management, and web technologies."
   }
 ];
 
 const experienceData = [
   {
     id: 1,
-    company: "Tech Solutions Inc.",
-    position: "Senior Software Engineer",
-    duration: "2022 - Present",
-    description: "Lead development of enterprise web applications using React and Node.js. Mentored junior developers and implemented CI/CD pipelines."
+    company: "Your Current Company",
+    position: "Software Developer",
+    duration: "2023 - Present",
+    description: "Developing web applications using React, Node.js, and modern JavaScript. Working on full-stack projects and collaborating with cross-functional teams."
   },
   {
     id: 2,
-    company: "Creative Studios",
-    position: "UI/UX Designer & Developer",
-    duration: "2021 - 2022",
-    description: "Designed and developed responsive websites for clients. Created design systems and component libraries."
+    company: "Freelance Projects",
+    position: "Full Stack Developer",
+    duration: "2022 - 2023",
+    description: "Built custom websites and web applications for various clients. Specialized in React, Express.js, and database integration."
   },
   {
     id: 3,
-    company: "Startup Hub",
-    position: "Freelance Developer",
-    duration: "2020 - 2021",
-    description: "Built custom web solutions for various clients. Specialized in React, TypeScript, and modern CSS frameworks."
+    company: "Internship/Training",
+    position: "Junior Developer",
+    duration: "2022 - 2022",
+    description: "Gained hands-on experience in software development lifecycle, testing, and deployment processes."
   }
 ];
 
@@ -61,45 +61,45 @@ const skillsData = {
 const certificatesData = [
   {
     id: 1,
-    title: "React Professional Certification",
-    organization: "Meta",
-    year: "2023",
-    link: "#"
+    title: "React Developer Certification",
+    organization: "Meta/Facebook",
+    year: "2024",
+    link: "https://coursera.org/verify/your-certificate-link"
   },
   {
     id: 2,
-    title: "AWS Certified Developer",
-    organization: "Amazon Web Services",
+    title: "JavaScript Fundamentals",
+    organization: "freeCodeCamp",
     year: "2023",
-    link: "#"
+    link: "https://freecodecamp.org/certification/your-username/javascript-algorithms-and-data-structures"
   },
   {
     id: 3,
-    title: "UX Design Specialization",
-    organization: "Google",
-    year: "2022",
-    link: "#"
+    title: "Full Stack Web Development",
+    organization: "Online Learning Platform",
+    year: "2023",
+    link: "https://your-certificate-link.com"
   },
   {
     id: 4,
-    title: "TypeScript Advanced",
-    organization: "Microsoft",
+    title: "Node.js Development",
+    organization: "Udemy",
     year: "2022",
-    link: "#"
+    link: "https://udemy.com/certificate/your-certificate"
   },
   {
     id: 5,
-    title: "Full Stack Development",
+    title: "Database Management",
     organization: "Coursera",
-    year: "2021",
-    link: "#"
+    year: "2022",
+    link: "https://coursera.org/verify/your-certificate"
   },
   {
     id: 6,
-    title: "GraphQL Fundamentals",
-    organization: "Apollo",
+    title: "Git & Version Control",
+    organization: "GitHub Learning Lab",
     year: "2021",
-    link: "#"
+    link: "https://github.com/your-username/certificate"
   }
 ];
 
