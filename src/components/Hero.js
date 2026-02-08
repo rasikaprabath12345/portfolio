@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import useTypingEffect from "../hooks/useTypingEffect";
+import DefaultAvatar from "./DefaultAvatar";
 
 const Hero = () => {
   const skills = [
@@ -41,15 +42,20 @@ const Hero = () => {
               {/* Profile Circle */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 sm:border-6 lg:border-8 border-blue-600/20 dark:border-blue-400/30 shadow-2xl shadow-blue-600/30 dark:shadow-blue-400/40">
                 <img 
-                  src="/profile.jpg" 
+                  src={`${process.env.PUBLIC_URL}/profile.jpg`} 
                   alt="Rasika Prabath"
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback to gradient background if image not found
+                    // Hide the image and show fallback
                     e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<div class="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600"></div><div class="absolute inset-0 flex items-center justify-center"><svg class="w-2/3 h-2/3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" /></svg></div>';
+                    const fallbackDiv = e.target.nextElementSibling;
+                    if (fallbackDiv) fallbackDiv.style.display = 'block';
                   }}
                 />
+                {/* Fallback Avatar - shown if image fails to load */}
+                <div className="absolute inset-0" style={{display: 'none'}}>
+                  <DefaultAvatar name="RP" size="full" />
+                </div>
               </div>
 
               {/* Floating Elements */}
