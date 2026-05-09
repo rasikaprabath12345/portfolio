@@ -17,7 +17,6 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Handle form submission
   };
 
   const contactInfo = [
@@ -57,7 +56,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="mb-10 sm:mb-12 grid gap-4 sm:gap-6 md:grid-cols-3"
+          className="mb-10 sm:mb-12 grid grid-cols-3 gap-3 sm:gap-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -67,17 +66,18 @@ const Contact = () => {
             <motion.a
               key={index}
               href={info.href}
-              className="flex flex-col items-center p-4 sm:p-6 rounded-lg sm:rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+              className="flex flex-col items-center p-3 sm:p-6 rounded-lg sm:rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
               whileHover={{ y: -4 }}
             >
-              <span className="text-3xl sm:text-4xl mb-3">{info.icon}</span>
-              <h3 className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">{info.label}</h3>
-              <p className="text-xs sm:text-sm text-gray-900 dark:text-white text-center font-medium break-all">
+              <span className="text-2xl sm:text-4xl mb-2 sm:mb-3">{info.icon}</span>
+              <h3 className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">{info.label}</h3>
+              <p className="text-xs text-gray-900 dark:text-white text-center font-medium break-all hidden sm:block">
                 {info.value}
               </p>
             </motion.a>
           ))}
         </motion.div>
+
         <motion.form
           onSubmit={handleSubmit}
           className="space-y-4"

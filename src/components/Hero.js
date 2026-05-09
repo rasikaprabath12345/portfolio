@@ -20,7 +20,7 @@ const Hero = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8 py-8 pb-32 sm:pb-48 lg:pb-56">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
           
-          {/* Profile Image - Shows first on mobile */}
+          {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -32,7 +32,6 @@ const Hero = () => {
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-76 md:h-76 lg:w-96 lg:h-96"
             >
-              {/* Gradient Rings */}
               <div className="absolute inset-0 -m-4 sm:-m-6 lg:-m-8">
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-600/20 to-blue-700/25 dark:from-blue-400/20 dark:to-blue-500/25 blur-3xl" />
               </div>
@@ -40,26 +39,22 @@ const Hero = () => {
                 <div className="w-full h-full rounded-full border-2 border-dashed border-blue-600/30 dark:border-blue-400/30" />
               </div>
               
-              {/* Profile Circle */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 sm:border-6 lg:border-8 border-blue-600/20 dark:border-blue-400/30 shadow-2xl shadow-blue-600/30 dark:shadow-blue-400/40">
                 <img 
                   src={profileImg}
                   alt="Rasika Prabath"
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Hide the image and show fallback
                     e.target.style.display = 'none';
                     const fallbackDiv = e.target.nextElementSibling;
                     if (fallbackDiv) fallbackDiv.style.display = 'block';
                   }}
                 />
-                {/* Fallback Avatar - shown if image fails to load */}
                 <div className="absolute inset-0" style={{display: 'none'}}>
                   <DefaultAvatar name="RP" size="full" />
                 </div>
               </div>
 
-              {/* Floating Elements */}
               <motion.div
                 animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -77,7 +72,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Left Content - Shows second on mobile */}
+          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -121,32 +116,33 @@ const Hero = () => {
               Dedicated IT undergraduate with a solid foundation in software engineering and quality assurance. Skilled in MERN stack development and software testing, with a passion for building efficient, reliable, and high-quality applications while continuously learning and contributing to impactful projects.
             </motion.p>
 
+            {/* Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6 justify-center lg:justify-start"
+              className="flex flex-row gap-2 sm:gap-4 mb-4 sm:mb-6 justify-center lg:justify-start"
             >
               <motion.a
                 href="/resume.pdf"
                 download="Rasika_Prabath_CV.pdf"
-                className="btn-primary group flex items-center justify-center"
+                className="btn-primary group flex items-center justify-center text-xs sm:text-sm px-3 sm:px-5 py-1.5 sm:py-2.5"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span>Download CV</span>
-                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-3 h-3 sm:w-5 sm:h-5 ml-1 sm:ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
               </motion.a>
               <motion.a
                 href="#contact"
-                className="lets-talk-btn"
+                className="lets-talk-btn text-xs sm:text-sm px-3 sm:px-5 py-1.5 sm:py-2.5"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span>Let's Talk</span>
-                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-3 h-3 sm:w-5 sm:h-5 ml-1 sm:ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </motion.a>
@@ -172,12 +168,12 @@ const Hero = () => {
                     href={social.url}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-blue-200 dark:border-blue-700/50 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 hover:border-blue-600 dark:hover:border-blue-400 hover:from-blue-100 hover:to-indigo-100 dark:hover:from-blue-800/40 dark:hover:to-indigo-800/40 transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border-2 border-blue-200 dark:border-blue-700/50 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 hover:border-blue-600 dark:hover:border-blue-400 hover:from-blue-100 hover:to-indigo-100 dark:hover:from-blue-800/40 dark:hover:to-indigo-800/40 transition-all duration-300 shadow-md hover:shadow-lg"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
                   >
-                    <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
                       <path d={social.icon} />
                     </svg>
                   </motion.a>
