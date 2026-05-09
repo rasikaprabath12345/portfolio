@@ -20,6 +20,27 @@ const Contact = () => {
     // Handle form submission
   };
 
+  const contactInfo = [
+    {
+      icon: "✉️",
+      label: "Email",
+      value: "rasikaprabath8694@gmail.com",
+      href: "mailto:rasikaprabath8694@gmail.com"
+    },
+    {
+      icon: "📞",
+      label: "Phone",
+      value: "+94 0703348191",
+      href: "tel:+940703348191"
+    },
+    {
+      icon: "📍",
+      label: "Location",
+      value: "Malabe, Sri Lanka",
+      href: "#"
+    }
+  ];
+
   return (
     <section id="contact" className="relative py-16 sm:py-20 lg:py-24 dark:bg-dark-bg">
       <div className="absolute inset-4 rounded-2xl border border-gray-300 dark:border-gray-600 opacity-60"></div>
@@ -33,6 +54,29 @@ const Contact = () => {
         >
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">Contact me</h2>
           <p className="mt-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal">Let's work together on your next project</p>
+        </motion.div>
+
+        <motion.div
+          className="mb-10 sm:mb-12 grid gap-4 sm:gap-6 md:grid-cols-3"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          {contactInfo.map((info, index) => (
+            <motion.a
+              key={index}
+              href={info.href}
+              className="flex flex-col items-center p-4 sm:p-6 rounded-lg sm:rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+              whileHover={{ y: -4 }}
+            >
+              <span className="text-3xl sm:text-4xl mb-3">{info.icon}</span>
+              <h3 className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">{info.label}</h3>
+              <p className="text-xs sm:text-sm text-gray-900 dark:text-white text-center font-medium break-all">
+                {info.value}
+              </p>
+            </motion.a>
+          ))}
         </motion.div>
         <motion.form
           onSubmit={handleSubmit}

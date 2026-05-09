@@ -18,9 +18,6 @@
     line-height: 1.65;
     font-weight: 400;
     letter-spacing: -0.01em;
-    /* Enable hardware acceleration for better backdrop-filter performance */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
   }
 
   body.dark {
@@ -57,7 +54,6 @@
     font-weight: 400;
   }
 
-  /* Ensure sections render on their own layer for backdrop-filter */
   section {
     position: relative;
     z-index: 1;

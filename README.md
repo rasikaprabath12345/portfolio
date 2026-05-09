@@ -76,22 +76,78 @@ Update the following files with your information:
 ## 📁 Project Structure
 
 ```
-src/
-├── components/          # Reusable UI components
-│   ├── About.js
-│   ├── Contact.js
-│   ├── Experience.js
-│   ├── Header.js
-│   ├── Hero.js
-│   ├── Projects.js
-│   └── ...
-├── data/               # Data files
-│   ├── projectsData.js
-│   └── resumeData.js
-├── hooks/              # Custom React hooks
-├── App.js              # Main application component
-└── index.js           # Application entry point
+portfolio/
+├── public/                    # Static files
+│   ├── index.html            # Main HTML file
+│   ├── manifest.json         # PWA manifest
+│   └── robots.txt            # SEO robots file
+│
+├── src/                       # Source code
+│   ├── components/            # Reusable UI components
+│   │   ├── About.js           # About section component
+│   │   ├── Certificates.js    # Certificates section
+│   │   ├── Contact.js         # Contact section
+│   │   ├── DefaultAvatar.js   # Avatar fallback component
+│   │   ├── Education.js       # Education section
+│   │   ├── Experience.js      # Experience/Work section
+│   │   ├── Footer.js          # Footer component
+│   │   ├── Header.js          # Navigation header
+│   │   ├── Hero.js            # Hero/Landing section
+│   │   ├── MeshBackground.js  # Animated mesh background
+│   │   ├── Projects.js        # Projects portfolio section
+│   │   ├── ScrollToTop.js     # Scroll to top button
+│   │   └── Skills.js          # Skills section
+│   │
+│   ├── data/                  # Static data files
+│   │   ├── projectsData.js    # Projects information
+│   │   └── resumeData.js      # Resume/CV data
+│   │
+│   ├── hooks/                 # Custom React hooks
+│   │   ├── useCustomCursor.js # Custom cursor hook
+│   │   └── useTypingEffect.js # Typing animation hook
+│   │
+│   ├── images/                # Image assets
+│   │   └── (profile pictures, logos, etc.)
+│   │
+│   ├── App.js                 # Main application component
+│   ├── index.js               # Application entry point
+│   ├── index.css              # Global styles
+│   └── reportWebVitals.js     # Performance monitoring
+│
+├── build/                     # Production build output (auto-generated)
+├── .gitignore                 # Git ignore rules
+├── package.json               # Dependencies and scripts
+├── package-lock.json          # Locked dependency versions
+├── tailwind.config.js         # Tailwind CSS configuration
+├── postcss.config.js          # PostCSS configuration
+├── CUSTOMIZATION_GUIDE.md     # Customization instructions
+└── README.md                  # This file
 ```
+
+## 📂 Component Descriptions
+
+| Component | Purpose |
+|-----------|---------|
+| **Header** | Navigation bar with menu and theme toggle |
+| **Hero** | Landing section with profile intro and CTA |
+| **About** | Personal background and professional summary |
+| **Education** | Educational background and degrees |
+| **Experience** | Work history and job experience |
+| **Skills** | Technical skills and proficiencies |
+| **Certificates** | Certifications and achievements |
+| **Projects** | Portfolio projects showcase |
+| **Contact** | Contact form and social links |
+| **Footer** | Footer with links and copyright |
+| **ScrollToTop** | Floating button to scroll back to top |
+| **MeshBackground** | Animated mesh gradient background effect |
+
+## 🎯 Key Files to Customize
+
+- **`src/data/resumeData.js`** - Update with your personal info, education, and work experience
+- **`src/data/projectsData.js`** - Add your projects and portfolio items
+- **`tailwind.config.js`** - Customize colors, fonts, and Tailwind settings
+- **`public/index.html`** - Update meta tags and title
+- **Component files** - Modify content and styling as needed
 
 ## 📝 Notes
 

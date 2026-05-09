@@ -1,3 +1,9 @@
+const contactData = {
+  email: "rasikaprabath8694@gmail.com",
+  phone: "+94 0703348191",
+  location: "Malabe, Sri Lanka"
+};
+
 const educationData = [
   {
     id: 1,
@@ -103,4 +109,5 @@ const certificatesData = [
   }
 ];
 
-export { educationData, experienceData, skillsData, certificatesData };
+
+export { contactData, educationData, experienceData, skillsData, certificatesData };
