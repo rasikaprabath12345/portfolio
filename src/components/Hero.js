@@ -17,7 +17,7 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-start overflow-hidden bg-light-bg dark:bg-dark-bg pt-16">
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8 py-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8 py-8 pb-32 sm:pb-48 lg:pb-56">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
           
           {/* Profile Image - Shows first on mobile */}
@@ -193,7 +193,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-32 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
