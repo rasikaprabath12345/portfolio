@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import useTypingEffect from "../hooks/useTypingEffect";
 import DefaultAvatar from "./DefaultAvatar";
+import profileImg from "../images/profile.jpg";
 
 const Hero = () => {
   const skills = [
@@ -42,7 +43,7 @@ const Hero = () => {
               {/* Profile Circle */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 sm:border-6 lg:border-8 border-blue-600/20 dark:border-blue-400/30 shadow-2xl shadow-blue-600/30 dark:shadow-blue-400/40">
                 <img 
-                  src={`${process.env.PUBLIC_URL}/profile.jpg`} 
+                  src={profileImg}
                   alt="Rasika Prabath"
                   className="w-full h-full object-cover"
                   onError={(e) => {
