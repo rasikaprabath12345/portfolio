@@ -8,6 +8,34 @@
     font-size: 15px;
   }
 
+  /* Custom Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, rgba(5, 10, 25, 0.9), rgba(10, 20, 50, 0.7));
+    border-radius: 3px;
+    transition: background 0.3s ease;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, rgba(5, 10, 25, 1), rgba(10, 20, 50, 0.9));
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(8, 15, 35, 0.8) transparent;
+  }
+
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;

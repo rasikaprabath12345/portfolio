@@ -16,7 +16,7 @@ const Experience = () => {
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Experience</h2>
           <p className="mt-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal">My professional journey</p>
         </motion.div>
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto px-2 sm:px-4 md:px-8">
           <div className="hidden sm:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-500 dark:via-indigo-500 dark:to-purple-500" />
           <div className="space-y-4 sm:space-y-6 sm:pl-20">
             {experienceData.map((exp, index) => (

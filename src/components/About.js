@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import profileImage from "../images/234.jpeg";
 
 const TechIcon = ({ name }) => {
   const icons = {
@@ -117,17 +118,43 @@ const About = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
-          className="mb-8 text-center"
+          className="mb-12 flex flex-col md:flex-row items-center gap-8 md:gap-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-xs font-medium mb-2 uppercase tracking-wide text-blue-600 dark:text-blue-400">Introduction</h3>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 text-gray-900 dark:text-white tracking-tight">About me</h2>
-          <p className="text-xs sm:text-sm leading-relaxed text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-normal">
-            Our team is proficient in a wide range of technologies for building web and mobile applications. We have a strong foundation in programming languages including <span className="text-blue-600 dark:text-blue-400 font-semibold">HTML, CSS, JavaScript, PHP, C, Java, React Js, and Next Js</span>. Additionally, we utilize modern tools and technologies such as Visual Studio Code, Figma, Git, and more. With a BSc (Hons) in Computing and Information Systems, we have successfully completed more than 5 projects.
-          </p>
+          {/* Profile Image */}
+          <motion.div
+            className="flex-shrink-0"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-2xl border-2 border-blue-500/20 dark:border-blue-500/40 hover:border-blue-500/50 transition-all duration-300">
+              <img 
+                src={profileImage} 
+                alt="Profile" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </motion.div>
+
+          {/* Text Content */}
+          <motion.div
+            className="text-center md:text-left flex-1"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h3 className="text-xs font-medium mb-2 uppercase tracking-wide text-blue-600 dark:text-blue-400">Introduction</h3>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-gray-900 dark:text-white tracking-tight">About me</h2>
+            <p className="text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-400 max-w-2xl font-normal">
+              Our team is proficient in a wide range of technologies for building web and mobile applications. We have a strong foundation in programming languages including <span className="text-blue-600 dark:text-blue-400 font-semibold">HTML, CSS, JavaScript, PHP, C, Java, React Js, and Next Js</span>. Additionally, we utilize modern tools and technologies such as Visual Studio Code, Figma, Git, and more. With a BSc (Hons) in Computing and Information Systems, we have successfully completed more than 5 projects.
+            </p>
+          </motion.div>
         </motion.div>
 
         <div className="grid gap-4 md:grid-cols-3 mt-8">

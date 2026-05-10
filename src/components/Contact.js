@@ -41,9 +41,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="relative py-16 sm:py-20 lg:py-24 dark:bg-dark-bg">
+    <section id="contact" className="relative mt-12 sm:mt-16 lg:mt-20 py-16 sm:py-20 lg:py-24 dark:bg-dark-bg">
       <div className="absolute inset-4 rounded-2xl border border-gray-300 dark:border-gray-600 opacity-60"></div>
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 sm:px-8 md:px-12 lg:px-16">
         <motion.div
           className="mb-8 sm:mb-10 text-center"
           initial={{ opacity: 0, y: 20 }}

@@ -7,17 +7,17 @@ const contactData = {
 const educationData = [
   {
     id: 1,
-    institution: "Your University Name",
-    degree: "Bachelor of Science in Computer Science",
-    duration: "2020 - Present",
-    description: "Specializing in software engineering, web development, and data structures with a focus on modern technologies."
+    institution: "SLIIT (Sri Lanka Institute of Information Technology)",
+    degree: "Bachelor of Information Technology",
+    duration: "2023 - Present",
+    description: "Pursuing degree in Information Technology with focus on software development, web technologies, and modern programming paradigms."
   },
   {
     id: 2,
-    institution: "Your College/Institute",
-    degree: "Diploma in Information Technology",
-    duration: "2018 - 2020",
-    description: "Foundation in programming, database management, and web technologies."
+    institution: "H/Walsmulla National School",
+    degree: "Physical Science Stream",
+    duration: "2011 - 2020",
+    description: "Completed secondary education with specialization in Physical Sciences including Physics, Chemistry, and Mathematics."
   }
 ];
 

@@ -1,17 +1,30 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import projectsData from "../data/projectsData";
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
+  // Disable scroll when project preview is open
+  useEffect(() => {
+    if (activeProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [activeProject]);
+
   const displayedProjects = showAll ? projectsData : projectsData.slice(0, 3);
 
   return (
     <section id="work" className="relative py-16 sm:py-20 lg:py-24 dark:bg-dark-bg">
       <div className="absolute inset-4 rounded-2xl border border-gray-300 dark:border-gray-600 opacity-60"></div>
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16">
         <motion.div
           className="mb-12 sm:mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -34,8 +47,9 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
             >
-              <div className="flex h-24 sm:h-28 items-center justify-center bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-600/20 dark:to-indigo-600/20">
-                <span className="text-xs font-medium text-gray-400 dark:text-gray-500">Project Preview</span>
+              <div className="flex h-24 sm:h-28 items-center justify-center bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-600/20 dark:to-indigo-600/20 overflow-hidden relative">
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                <span className="absolute top-2 left-2 inline-block px-2 py-1 bg-blue-600 dark:bg-blue-500 text-white text-xs font-semibold rounded-full">{project.type}</span>
               </div>
               <div className="p-3 sm:p-4">
                 <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight">
@@ -82,56 +96,138 @@ const Projects = () => {
       <AnimatePresence>
         {activeProject && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-6 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-start justify-center pt-16 lg:pt-28 bg-black/60 px-6 backdrop-blur-sm overflow-y-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActiveProject(null)}
           >
             <motion.div
-              className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl bg-white dark:bg-dark-card p-8 shadow-2xl"
+              className="relative max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-2xl bg-white dark:bg-dark-card p-3 lg:p-6 shadow-2xl"
               initial={{ y: 50, opacity: 0, scale: 0.9 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 30, opacity: 0, scale: 0.95 }}
               onClick={e => e.stopPropagation()}
             >
               <button
-                className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-dark-bg text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                className="absolute right-4 top-4 lg:right-6 lg:top-6 flex h-8 w-8 lg:h-10 lg:w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-dark-bg text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
                 onClick={() => setActiveProject(null)}
               >
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5 lg:h-6 lg:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <div className="space-y-6">
+              <div className="space-y-1 lg:space-y-3">
+                {/* Type Badge and Title */}
                 <div>
-                  <p className="text-sm font-semibold text-primary">Case Study</p>
-                  <h3 className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">{activeProject.title}</h3>
-                  <p className="mt-2 text-gray-600 dark:text-gray-400">{activeProject.description}</p>
+                  <div className="flex items-center gap-1.5 mb-0.5 lg:gap-2 lg:mb-1">
+                    <span className="inline-block px-1.5 py-0.25 lg:px-2 lg:py-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 text-white text-xs lg:text-sm font-semibold rounded-full">
+                      {activeProject.type}
+                    </span>
+                    <p className="text-xs lg:text-sm font-semibold text-primary">Case Study</p>
+                  </div>
+                  <h3 className="mt-0.5 lg:mt-1 text-lg lg:text-3xl font-bold text-gray-900 dark:text-white">{activeProject.title}</h3>
+                  <p className="mt-0.5 lg:mt-2 text-xs lg:text-sm text-gray-600 dark:text-gray-400 leading-tight line-clamp-2">{activeProject.description}</p>
                 </div>
-                <div className="grid gap-4 md:grid-cols-3">
-                  <div className="rounded-lg border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg p-4">
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Overview</h4>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{activeProject.overview}</p>
+
+                {/* Project Info Grid */}
+                <div className="grid grid-cols-2 gap-1 lg:gap-2 md:grid-cols-4">
+                  <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-1.5 lg:p-2.5 border border-blue-200 dark:border-blue-700/30">
+                    <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-medium">Client</p>
+                    <p className="mt-0.25 lg:mt-0.5 text-xs lg:text-sm font-semibold text-gray-900 dark:text-white line-clamp-1">{activeProject.client}</p>
                   </div>
-                  <div className="rounded-lg border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg p-4">
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Problem</h4>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{activeProject.problem}</p>
+                  <div className="rounded-lg bg-indigo-50 dark:bg-indigo-900/20 p-1.5 lg:p-2.5 border border-indigo-200 dark:border-indigo-700/30">
+                    <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-medium">Timeline</p>
+                    <p className="mt-0.25 lg:mt-0.5 text-xs lg:text-sm font-semibold text-gray-900 dark:text-white line-clamp-1">{activeProject.duration}</p>
                   </div>
-                  <div className="rounded-lg border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg p-4">
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Solution</h4>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{activeProject.solution}</p>
+                  <div className="rounded-lg bg-purple-50 dark:bg-purple-900/20 p-1.5 lg:p-2.5 border border-purple-200 dark:border-purple-700/30">
+                    <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-medium">Team</p>
+                    <p className="mt-0.25 lg:mt-0.5 text-xs lg:text-sm font-semibold text-gray-900 dark:text-white line-clamp-1">{activeProject.teamSize}</p>
+                  </div>
+                  <div className="rounded-lg bg-pink-50 dark:bg-pink-900/20 p-1.5 lg:p-2.5 border border-pink-200 dark:border-pink-700/30">
+                    <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-medium">Year</p>
+                    <p className="mt-0.25 lg:mt-0.5 text-xs lg:text-sm font-semibold text-gray-900 dark:text-white line-clamp-1">{activeProject.year}</p>
                   </div>
                 </div>
+
+                {/* Demo Credentials */}
+                {activeProject.demo && (
+                  <div className="rounded-lg bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-700/30 p-1.5 lg:p-2.5">
+                    <h4 className="text-xs lg:text-sm font-semibold text-gray-900 dark:text-white mb-0.5 lg:mb-1">Demo Access</h4>
+                    <div className="space-y-0.5 lg:space-y-1">
+                      <div className="flex justify-between items-center gap-1 lg:gap-2">
+                        <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-medium">Login:</p>
+                        <p className="text-xs lg:text-sm font-mono text-gray-900 dark:text-white bg-white dark:bg-gray-800 px-1 lg:px-2 py-0.25 lg:py-0.5 rounded">{activeProject.demo.login}</p>
+                      </div>
+                      <div className="flex justify-between items-center gap-1 lg:gap-2">
+                        <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-medium">Password:</p>
+                        <p className="text-xs lg:text-sm font-mono text-gray-900 dark:text-white bg-white dark:bg-gray-800 px-1 lg:px-2 py-0.25 lg:py-0.5 rounded">{activeProject.demo.password}</p>
+                      </div>
+                      <div className="pt-0.5 lg:pt-1 border-t border-green-200 dark:border-green-700/30">
+                        <p className="text-xs lg:text-sm text-green-700 dark:text-green-400 font-medium mb-0.25 lg:mb-0.5">Demo Includes:</p>
+                        <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 leading-tight line-clamp-1">{activeProject.demo.demoData}</p>
+                        <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 leading-tight line-clamp-1">{activeProject.demo.features}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Problem, Solution, Overview */}
+                <div className="grid gap-1 lg:gap-2 md:grid-cols-3">
+                  <div className="rounded-lg border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg p-1.5 lg:p-2.5">
+                    <h4 className="text-xs lg:text-sm font-semibold text-gray-900 dark:text-white">Overview</h4>
+                    <p className="mt-0.25 lg:mt-0.5 text-xs lg:text-sm text-gray-600 dark:text-gray-400 leading-tight line-clamp-4 lg:line-clamp-5">{activeProject.overview}</p>
+                  </div>
+                  <div className="rounded-lg border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg p-1.5 lg:p-2.5">
+                    <h4 className="text-xs lg:text-sm font-semibold text-gray-900 dark:text-white">Problem</h4>
+                    <p className="mt-0.25 lg:mt-0.5 text-xs lg:text-sm text-gray-600 dark:text-gray-400 leading-tight line-clamp-4 lg:line-clamp-5">{activeProject.problem}</p>
+                  </div>
+                  <div className="rounded-lg border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg p-1.5 lg:p-2.5">
+                    <h4 className="text-xs lg:text-sm font-semibold text-gray-900 dark:text-white">Solution</h4>
+                    <p className="mt-0.25 lg:mt-0.5 text-xs lg:text-sm text-gray-600 dark:text-gray-400 leading-tight line-clamp-4 lg:line-clamp-5">{activeProject.solution}</p>
+                  </div>
+                </div>
+
+                {/* Technologies Used */}
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Technologies Used</h4>
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <h4 className="text-xs lg:text-sm font-semibold text-gray-900 dark:text-white mb-0.5 lg:mb-1">Technologies</h4>
+                  <div className="flex flex-wrap gap-0.5 lg:gap-1">
                     {activeProject.techStack.map(tech => (
-                      <span key={tech} className="rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 border border-blue-200 dark:border-blue-700/50 px-3 py-1 text-sm font-medium">
+                      <span key={tech} className="rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 border border-blue-200 dark:border-blue-700/50 px-1.5 lg:px-2 py-0.25 lg:py-0.5 text-xs lg:text-sm font-medium">
                         <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">{tech}</span>
                       </span>
                     ))}
                   </div>
+                </div>
+
+                {/* External Links */}
+                <div className="flex gap-1 lg:gap-2 pt-1 lg:pt-2 border-t border-gray-200 dark:border-gray-700">
+                  {activeProject.github && (
+                    <a
+                      href={activeProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-1 lg:gap-1.5 rounded-md bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 dark:from-gray-700 dark:to-gray-600 px-1 lg:px-3 py-1.5 lg:py-2 font-medium text-xs lg:text-sm text-white transition-all duration-300 hover:shadow-md"
+                    >
+                      <svg className="w-3 h-3 lg:w-4 lg:h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                      <span className="hidden lg:inline">GitHub</span>
+                    </a>
+                  )}
+                  {activeProject.link && (
+                    <a
+                      href={activeProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-1 lg:gap-1.5 rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 dark:from-blue-500 dark:to-indigo-500 px-1 lg:px-3 py-1.5 lg:py-2 font-medium text-xs lg:text-sm text-white transition-all duration-300 hover:shadow-md"
+                    >
+                      <svg className="w-3 h-3 lg:w-4 lg:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      <span className="hidden lg:inline">Demo</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
