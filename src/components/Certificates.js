@@ -20,13 +20,22 @@ const Certificates = () => {
           {certificatesData.map((cert, index) => (
             <motion.div
               key={cert.id}
-              className="group rounded-lg border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg p-4 shadow-md transition-all hover:shadow-xl"
+              className="group rounded-lg border border-light-border dark:border-dark-border bg-light-bg dark:bg-dark-bg p-4 shadow-md transition-all hover:shadow-xl overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
+              {cert.image && (
+                <div className="mb-4 h-40 w-full overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
+              )}
               <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30">
                 <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />

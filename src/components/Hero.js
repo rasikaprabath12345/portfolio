@@ -8,6 +8,7 @@ const Hero = () => {
     "Software Automation",
     "Full Stack Developer",
     "MERN Stack Developer",
+    "UI/UX Engineer",
     "QA Engineer",
     "Web Developer",
     "Software Engineer"

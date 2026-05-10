@@ -42,7 +42,7 @@ const Education = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="inline-block px-2.5 py-0.5 text-xs bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 border border-blue-200 dark:border-blue-700/50 font-medium rounded-full mb-2">
-                        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">{edu.period}</span>
+                        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">{edu.duration}</span>
                       </span>
                       <h3 className="mt-1 text-sm sm:text-base font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors break-words tracking-tight">
                         {edu.degree}

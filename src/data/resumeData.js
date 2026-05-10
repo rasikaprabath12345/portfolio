@@ -26,22 +26,29 @@ const experienceData = [
     id: 1,
     company: "Your Current Company",
     position: "Software Developer",
-    duration: "2023 - Present",
+    period: "2023 - Present",
     description: "Developing web applications using React, Node.js, and modern JavaScript. Working on full-stack projects and collaborating with cross-functional teams."
   },
   {
     id: 2,
     company: "Freelance Projects",
     position: "Full Stack Developer",
-    duration: "2022 - 2023",
+    period: "2022 - 2023",
     description: "Built custom websites and web applications for various clients. Specialized in React, Express.js, and database integration."
   },
   {
     id: 3,
     company: "Internship/Training",
     position: "Junior Developer",
-    duration: "2022 - 2022",
+    period: "2022 - 2022",
     description: "Gained hands-on experience in software development lifecycle, testing, and deployment processes."
+  },
+  {
+    id: 4,
+    company: "Design & Development Studio",
+    position: "UI/UX Engineering",
+    period: "2021 - 2022",
+    description: "Designed and engineered user interfaces with a focus on user experience. Created wireframes, prototypes, and high-fidelity designs using Figma. Collaborated with developers to implement responsive, accessible, and visually appealing web interfaces."
   }
 ];
 
@@ -70,42 +77,48 @@ const certificatesData = [
     title: "React Developer Certification",
     organization: "Meta/Facebook",
     year: "2024",
-    link: "https://coursera.org/verify/your-certificate-link"
+    link: "https://coursera.org/verify/your-certificate-link",
+    image: require("../images/react_cert.png")
   },
   {
     id: 2,
     title: "JavaScript Fundamentals",
     organization: "freeCodeCamp",
     year: "2023",
-    link: "https://freecodecamp.org/certification/your-username/javascript-algorithms-and-data-structures"
+    link: "https://freecodecamp.org/certification/your-username/javascript-algorithms-and-data-structures",
+    image: require("../images/js_cert.png")
   },
   {
     id: 3,
     title: "Full Stack Web Development",
     organization: "Online Learning Platform",
     year: "2023",
-    link: "https://your-certificate-link.com"
+    link: "https://your-certificate-link.com",
+    image: require("../images/fullstack_cert.png")
   },
   {
     id: 4,
     title: "Node.js Development",
     organization: "Udemy",
     year: "2022",
-    link: "https://udemy.com/certificate/your-certificate"
+    link: "https://udemy.com/certificate/your-certificate",
+    image: require("../images/nodejs_cert.png")
   },
   {
     id: 5,
     title: "Database Management",
     organization: "Coursera",
     year: "2022",
-    link: "https://coursera.org/verify/your-certificate"
+    link: "https://coursera.org/verify/your-certificate",
+    image: require("../images/db_cert.png")
   },
   {
     id: 6,
     title: "Git & Version Control",
     organization: "GitHub Learning Lab",
     year: "2021",
-    link: "https://github.com/your-username/certificate"
+    link: "https://github.com/your-username/certificate",
+    image: require("../images/git_cert.png")
   }
 ];
 
