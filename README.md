@@ -80,17 +80,17 @@ npm run deploy         # Deploy to GitHub Pages
 ### Update Personal Info
 Edit `src/data/resumeData.js`
 ```javascript
-name: "Your Name",
-email: "your.email@example.com",
-phone: "+1 (555) 000-0000"
+name: "Rasika Prabath",
+email: "rasikaprabath8694@gmail.com",
+phone: "0703348191"
 ```
 
 ### Add Projects
 Edit `src/data/projectsData.js`
 ```javascript
 {
-  title: "Project Name",
-  description: "Description",
+  title: "Portfolio",
+  description: "my portfolio",
   techStack: ["React", "Node.js"],
   link: "https://project.com",
   github: "https://github.com/..."
