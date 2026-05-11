@@ -17,7 +17,7 @@ const educationData = [
     institution: "H/Walsmulla National School",
     degree: "Physical Science Stream",
     duration: "2011 - 2020",
-    description: "Completed secondary education with specialization in Physical Sciences including Physics, Chemistry, and Mathematics."
+    description: "Completed secondary education with specialization in Physical Sciences including Physics, Chemistry, and Combiend Mathematics."
   }
 ];
 
