@@ -32,7 +32,7 @@ const experienceData = [
   {
     id: 2,
     company: "Freelance Projects",
-    position: "Full Stack Developer",
+    position: "Full Stac k Developer",
     period: "2022 - 2023",
     description: "Built custom websites and web applications for various clients. Specialized in React, Express.js, and database integration."
   },
