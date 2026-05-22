@@ -31,7 +31,7 @@ const Footer = () => {
             <a href="mailto:rasika.prabath@gmail.com" className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Terms of
            
-    Services
+  Services
             </a>
             <a href="#contact" className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Privacy Policy
